@@ -4,7 +4,7 @@
 //
 // Created by Usama Alshughry 08.06.2021
 //
-// This file is part of SDL_Circle
+// This file is part of SDL_circle
 //
 // SDL_Circle  is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
