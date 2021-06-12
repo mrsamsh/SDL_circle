@@ -41,20 +41,20 @@ typedef struct _SDL_FEllipse {
 	float x, y, rx, ry;
 } SDL_FEllipse;
 
-void SDL_RenderDrawCircle(SDL_Renderer *renderer, const SDL_Circle *circle);
+int SDL_RenderDrawCircle(SDL_Renderer *renderer, const SDL_Circle *circle);
 
-void SDL_RenderDrawCircleF(SDL_Renderer *renderer, const SDL_FCircle *circle);
+int SDL_RenderDrawCircleF(SDL_Renderer *renderer, const SDL_FCircle *circle);
 
-void SDL_RenderDrawEllipse(SDL_Renderer *renderer, const SDL_Ellipse *ellipse);
+int SDL_RenderDrawEllipse(SDL_Renderer *renderer, const SDL_Ellipse *ellipse);
 
-void SDL_RenderDrawEllipseF(SDL_Renderer *renderer, const SDL_FEllipse *ellipse);
+int SDL_RenderDrawEllipseF(SDL_Renderer *renderer, const SDL_FEllipse *ellipse);
 
-void SDL_RenderFillCircle(SDL_Renderer *renderer, const SDL_Circle *circle);
+int SDL_RenderFillCircle(SDL_Renderer *renderer, const SDL_Circle *circle);
 
-void SDL_RenderFillCircleF(SDL_Renderer *renderer, const SDL_FCircle *circle);
+int SDL_RenderFillCircleF(SDL_Renderer *renderer, const SDL_FCircle *circle);
 
-void SDL_RenderFillEllipse(SDL_Renderer *renderer, const SDL_Ellipse *ellipse);
+int SDL_RenderFillEllipse(SDL_Renderer *renderer, const SDL_Ellipse *ellipse);
 
-void SDL_RenderFillEllipseF(SDL_Renderer *renderer, const SDL_FEllipse *ellipse);
+int SDL_RenderFillEllipseF(SDL_Renderer *renderer, const SDL_FEllipse *ellipse);
 
 #endif /* _SDL_CIRCLE_H_ */

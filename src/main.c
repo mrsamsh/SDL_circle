@@ -49,8 +49,8 @@ int main(int argc, char *argv[]) {
 		SDL_RenderClear(renderer);
 		SDL_SetRenderDrawColor(renderer, 0xff, 0xff, 0xff, 0xff);
 		//-------------------------- draw here --------------------------//
-		SDL_FEllipse c = { 100, 100, 22.4, 10.1 };
-		SDL_RenderDrawEllipseF(renderer, &c);
+		SDL_FEllipse c = { rand() % 800, rand() % 600, rand() % 100, rand() % 100 };
+		SDL_RenderFillEllipseF(renderer, &c);
 		
 		//---------------------------------------------------------------//
 		SDL_RenderPresent(renderer);
