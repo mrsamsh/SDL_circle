@@ -25,19 +25,19 @@
 
 #include <SDL2/SDL_render.h>
 
-typedef struct _SDL_Circle {
+typedef struct SDL_Circle {
 	int x, y, r;
 } SDL_Circle;
 
-typedef struct _SDL_Ellipse {
+typedef struct SDL_Ellipse {
 	int x, y, rx, ry;
 } SDL_Ellipse;
 
-typedef struct _SDL_FCircle {
+typedef struct SDL_FCircle {
 	float x, y, r;
 } SDL_FCircle;
 
-typedef struct _SDL_FEllipse {
+typedef struct SDL_FEllipse {
 	float x, y, rx, ry;
 } SDL_FEllipse;
 
