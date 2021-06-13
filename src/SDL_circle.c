@@ -6,23 +6,23 @@
 //
 // This file is part of SDL_circle
 //
-// SDL_Circle  is free software: you can redistribute it and/or modify
+// SDL_circle  is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
 // (at your option) any later version.
 //
-// Foobar is distributed in the hope that it will be useful,
+// SDL_circle is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with Foobar.  If not, see <https://www.gnu.org/licenses/>.>
+// along with SDL_circle.  If not, see <https://www.gnu.org/licenses/>.>
 //
 
 #include "SDL_circle.h"
 
-int DrawEllipse(SDL_Renderer *renderer, float x, float y, float rx, float ry) {
+static int DrawEllipse(SDL_Renderer *renderer, float x, float y, float rx, float ry) {
 	rx = (rx >= 0 ? rx : -rx);
 	ry = (ry >= 0 ? ry : -ry);
 	SDL_FPoint points[30];
@@ -59,7 +59,7 @@ int DrawEllipse(SDL_Renderer *renderer, float x, float y, float rx, float ry) {
 	return SDL_RenderDrawLinesF(renderer, points, 30);
 }
 
-int FillEllipse(SDL_Renderer *renderer, float x, float y, float rx, float ry) {
+static int FillEllipse(SDL_Renderer *renderer, float x, float y, float rx, float ry) {
 	rx = (rx >= 0 ? rx : -rx);
 	ry = (ry >= 0 ? ry : -ry);
 	int cx = (int)x;
@@ -68,8 +68,10 @@ int FillEllipse(SDL_Renderer *renderer, float x, float y, float rx, float ry) {
 	int rry = (int)ry;
 	int x1, x2, y1;
 	int retval;
-	for (int i = 1; i <= rry; ++i) {
-		int line = (int)(sqrt(ry * ry - (ry - i) * (ry - i)) * rx / ry);
+	int line;
+
+	for (int i = rry; i > 0; --i) {
+		line = round(sqrt(ry * ry - (ry - i) * (ry - i)) * rx / ry);
 		x1 = cx - line;
 		x2 = cx + line;
 		y1 = cy - (rry - i);
@@ -79,6 +81,17 @@ int FillEllipse(SDL_Renderer *renderer, float x, float y, float rx, float ry) {
 		y1 = cy + (rry - i);
 		retval = SDL_RenderDrawLine(renderer, x1, y1, x2, y1);
 	}
+
+	line /= 2;
+	x1 = cx - line;
+	x2 = cx + line;
+	y1 = cy - rry;
+	retval = SDL_RenderDrawLine(renderer, x1, y1, x2, y1);
+	x1 = cx - line;
+	x2 = cx + line;
+	y1 = cy + rry;
+	retval = SDL_RenderDrawLine(renderer, x1, y1, x2, y1);
+
 	return retval;
 }
 
