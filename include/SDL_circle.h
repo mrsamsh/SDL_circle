@@ -23,6 +23,10 @@
 #ifndef _SDL_CIRCLE_H_
 #define _SDL_CIRCLE_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #include <SDL2/SDL_render.h>
 
 typedef struct SDL_Circle {
@@ -56,5 +60,9 @@ int SDL_RenderFillCircleF(SDL_Renderer *renderer, const SDL_FCircle *circle);
 int SDL_RenderFillEllipse(SDL_Renderer *renderer, const SDL_Ellipse *ellipse);
 
 int SDL_RenderFillEllipseF(SDL_Renderer *renderer, const SDL_FEllipse *ellipse);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* _SDL_CIRCLE_H_ */
